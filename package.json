@@ -1,0 +1,16 @@
+{
+  "name": "chabo",
+  "version": "1.0.0",
+  "description": "Chatbot - Solman Demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "SAP",
+  "license": "ISC",
+  "devDependencies": {
+    "axios": "^0.18.0",
+    "express": "^4.16.3",
+    "nodemailer": "^4.6.7"
+  }
+}

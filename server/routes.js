@@ -58,16 +58,16 @@ configRoutes = function( app, server, axios, nodeMailer )
 		console.log( request.body );
 		console.log('<<< End of body part of "unclock_user". <<<');
 
-		axios.get( unlockTarget ).then( function( response ) {
+		axios.get( unlockTarget ).then( function( res ) {
 			console.log('>>> Data part of "response.data". >>>');
-			console.log( response.data );
+			console.log( res.data );
 			console.log('<<< End of data part of "response.data". <<<');
 
 			response.send({
-				replies: {
+				replies: [{
 					type: 'text',
 					content: 'ユーザーのアンロックが完了しました。ログオン可能かご確認下さい。'
-				},
+				}],
 				conversation: {
 					memory: { key: 'value' }
 				}
@@ -141,10 +141,10 @@ configRoutes = function( app, server, axios, nodeMailer )
 		});
 
 		response.send({
-			replies: {
+			replies: [{
 				type: 'text',
 				content: 'インシデントが正常に登録されました。明日12時までに担当者よりご連絡差し上げます。なお、お急ぎの場合は 0120-XXX-XXX までご連絡頂けます様お願い致します。'
-			},
+			}],
 			conversation: {
 				memory: { key: 'value' }
 			}

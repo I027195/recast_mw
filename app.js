@@ -28,10 +28,10 @@ var
 	bodyParser = require( 'body-parser' ),
 	methodOverride = require('method-override'),
 	logger = require('morgan'),
-	errorHandler = require('errorhandler');
+	errorHandler = require('errorhandler'),
 
-	nodeMailer = require('nodemailer');
-	axiosBase = require('axios');
+	nodeMailer = require('nodemailer'),
+	axiosBase = require('axios'),
 	axios = axiosBase.create({
 		baseURL: 'http://mo-ad9aab1ac.mo.sap.corp:8000',
 		headers: {

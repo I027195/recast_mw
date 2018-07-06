@@ -58,6 +58,8 @@ configRoutes = function( app, server, axios, nodeMailer )
 		console.log( request.body );
 		console.log('<<< End of body part of "unclock_user". <<<');
 
+		response.setLocale(request.body.conversation.language)
+
 		axios.get( unlockTarget ).then( function( res ) {
 			console.log('>>> Data part of "response.data". >>>');
 			console.log( res.data );
@@ -66,7 +68,7 @@ configRoutes = function( app, server, axios, nodeMailer )
 			response.send({
 				replies: [{
 					type: 'text',
-					content: 'ユーザーのアンロックが完了しました。ログオン可能かご確認下さい。'
+					content: response.__('UNLOCK_USR.MSG_SUCCESS')
 				}],
 				conversation: {
 					memory: { key: 'value' }

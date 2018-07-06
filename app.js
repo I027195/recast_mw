@@ -19,17 +19,12 @@ const nodePort = 8080;
 var
 	http = require( 'http' ),
 	express = require( 'express' ),
-	routes = require( './server/routes' ),
-
 	app = express(),
 	server = http.createServer( app ),
-
-	// Middleware (followings were necessary to install separately as of Express4 )
 	bodyParser = require( 'body-parser' ),
 	methodOverride = require('method-override'),
 	logger = require('morgan'),
 	errorHandler = require('errorhandler'),
-
 	nodeMailer = require('nodemailer'),
 	axiosBase = require('axios'),
 	axios = axiosBase.create({
@@ -39,8 +34,11 @@ var
 			'X-Requested-With': 'XMLHttpRequest'
 		},
 		responseType: 'json'
-	});
-
+	}),
+	i18n = require( 'i18n' ),
+	// My libraries
+	routes = require( './server/routes' )
+	;
 
 // Module Scope Variant <<< End
 //===================================
@@ -53,6 +51,13 @@ app.use( bodyParser.json() );
 app.use( methodOverride() );
 //app.use( express.static( __dirname + '/frontend' ) );
 // app.use( app.router ); // Deprecated in Express 4.
+
+i18n.configure({
+	locales: ['en', 'ja'],
+	directory: __dirname + '/locales',
+	objectNotation: true
+});
+app.use( i18n.init );
 
 switch ( app.get('env') )
 {

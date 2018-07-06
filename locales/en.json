@@ -1,0 +1,6 @@
+{
+	"UNLOCK_USR": {
+		"MSG_SUCCESS": "Unlocking user is successfully finished. Check whether logon is possible."
+	},
+	"TEST_MSG": "This is the test message"
+}

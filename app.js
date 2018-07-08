@@ -25,16 +25,6 @@ var
 	methodOverride = require('method-override'),
 	logger = require('morgan'),
 	errorHandler = require('errorhandler'),
-	nodeMailer = require('nodemailer'),
-	axiosBase = require('axios'),
-	axios = axiosBase.create({
-		baseURL: 'http://mo-ad9aab1ac.mo.sap.corp:8000',
-		headers: {
-			'ContentType': 'application/json',
-			'X-Requested-With': 'XMLHttpRequest'
-		},
-		responseType: 'json'
-	}),
 	i18n = require( 'i18n' ),
 	// My libraries
 	routes = require( './server/routes' )
@@ -50,7 +40,6 @@ var
 app.use( bodyParser.json() );
 app.use( methodOverride() );
 //app.use( express.static( __dirname + '/frontend' ) );
-// app.use( app.router ); // Deprecated in Express 4.
 
 i18n.configure({
 	locales: ['en', 'ja'],
@@ -74,7 +63,7 @@ switch ( app.get('env') )
 		break;
 }
 
-routes.configRoutes( app, server, axios, nodeMailer );
+routes.configRoutes( app, server );
 
 // Server Configuration <<< End
 //===================================

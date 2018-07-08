@@ -1,6 +1,9 @@
 {
-	"UNLOCK_USR": {
-		"MSG_SUCCESS": "Unlocking user is successfully finished. Check whether logon is possible."
+	"unlockUser": {
+		"msgSuccess": "Unlocking user is successfully finished. Check whether logon is possible."
+	},
+	"createIncicdent": {
+		"msgSuccess": "The incident is successfully created. You will be notified by the person responsible. For urgent case, please call at 0120-XXX-XXX ."
 	},
 	"TEST_MSG": "This is the test message"
 }
